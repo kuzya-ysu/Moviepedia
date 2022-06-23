@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Moviepedia.Models
 {
-    [Table("Genres")]
     public class Genre
     {
         [HiddenInput(DisplayValue = false)]
