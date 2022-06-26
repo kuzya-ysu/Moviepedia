@@ -7,29 +7,39 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Moviepedia.styles.css" asp-append-version="true" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'Montserrat';
+        }
+    </style>
 </head>
-<body>
+<body class="bg-dark bg-gradient text-info">
     <header>
-        <nav class="navbar bg-light">
+        <nav class="navbar fixed-top bg-dark bg-gradient">
             <div class="container-fluid">
-                <a class="navbar-brand">
-                    <img src="@Url.Content("~/Images/moviepedia_logo.png")" width="30" height="24" class="d-inline-block align-text-top">
+                <a class="navbar-brand text-info" asp-action="Index" asp-controller="Movies">
+                    <img src="@Url.Content("~/Images/logo.png")" width="25" height="25" class="d-inline-block align-text-top">
                     Moviepedia
                 </a>
+                <form asp-action="Search" asp-controller="Movies" class="d-flex" role="search" style="width:30%">
+                    <input class="form-control me-2 border-info" type="search" placeholder="Search" name="searchString" aria-label="Search" >
+                    <button class="btn btn-outline-info" type="submit">Search</button>
+                </form>
+                <a class="btn btn-outline-info" asp-action="Registration" asp-controller="Account">
+                    Sign in
+                </a>
+                
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container" >
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Moviepedia - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

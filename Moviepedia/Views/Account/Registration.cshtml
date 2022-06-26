@@ -1,0 +1,53 @@
+﻿@model BookShop.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Registration";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+</head>
+<body>
+
+    <div style="display:flex; height:100%; width:100%; position:absolute; right:0; left:0;">
+        <form method="post"  asp-controller="Account" asp-action="Register" style="margin:auto; width:30%;">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="mb-3">
+                <label asp-for="Email"></label><br />
+                <input asp-for="Email" class="form-control"  placeholder="name@example.com"/>
+                <span asp-validation-for="Email"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password"></label><br />
+                <input asp-for="Password" class="form-control" aria-describedby="passwordHelp"/>
+                <div id="passwordHelp" class="form-text">Password must be 8-50 symbols long</div>
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PasswordConfirm"></label><br />
+                <input asp-for="PasswordConfirm" class="form-control"/>
+                <span asp-validation-for="PasswordConfirm"></span>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-outline-info">Sign up</button>
+            </div>
+        </form>
+    </div>
+    @*<div style="text-align:center; margin-top:15rem">
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            
+            <button type="submit" class="btn btn-outline-info">Submit</button>
+        </form>
+    </div>*@
+</body>
+</html>

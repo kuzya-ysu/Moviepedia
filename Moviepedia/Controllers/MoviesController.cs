@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -40,7 +41,14 @@ namespace Moviepedia.Controllers
             {
                 return NotFound();
             }
-
+            var reviews = _context.Reviews.Where(r => r.Movie == movie).ToList();
+            if (reviews == null || reviews.Count == 0)
+                ViewBag.HasReview = false;
+            else
+            {
+                ViewBag.HasReview = true;
+                ViewBag.Reviews = reviews;
+            }
             return View(movie);
         }
 
@@ -157,6 +165,34 @@ namespace Moviepedia.Controllers
         private bool MovieExists(int id)
         {
           return (_context.Movies?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        public IActionResult Search(string searchString)
+        {
+            var results = new List<Movie>();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                Regex rg = new Regex(@"\w+", RegexOptions.IgnoreCase);
+                var matches = rg.Matches(searchString.ToLower());
+                foreach (var word in matches)
+                {
+                    var list = _context.Movies.Where(m => m.Director.Contains(word.ToString()) ||
+                                                    m.Name.Contains(word.ToString())).ToList();
+                    results.AddRange(list);
+                }
+                results = (from item in results select item).Distinct().ToList();
+            }
+            if (results.Count > 0)
+            {
+                ViewBag.Msg = "Search results:";
+            }
+            else
+            {
+                ViewBag.Msg = "We couldn't find any matches for " +
+                    "\"" + searchString + "\"";
+                ViewBag.Msg2 = "Try another search?"; 
+            }
+            return View("Index", results);
         }
     }
 }

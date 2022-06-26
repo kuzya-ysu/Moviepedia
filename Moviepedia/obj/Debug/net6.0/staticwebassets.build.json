@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cxLeuKYok5F1bjWuHGzHljHdd7PvVjrgkbJ0YMrVjNE=",
+  "Hash": "qXds7ldRYWx9B6lRoNe7fvI9Ip8I/+o511+wk52ZfIk=",
   "Source": "Moviepedia",
   "BasePath": "_content/Moviepedia",
   "Mode": "Default",
@@ -867,12 +867,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\Interstellar .png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\interstellar_carousel.jpg",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\logo.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/interstellar_carousel.jpg",
+      "RelativePath": "Images/logo.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -881,7 +881,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\interstellar_carousel.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\logo.png"
     },
     {
       "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Midsommar .png",
@@ -901,57 +901,6 @@
       "OriginalItemSpec": "wwwroot\\Images\\Midsommar .png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\midsommar_carousel.jpg",
-      "SourceId": "Moviepedia",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
-      "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/midsommar_carousel.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\midsommar_carousel.jpg"
-    },
-    {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\moviepedia_logo.png",
-      "SourceId": "Moviepedia",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
-      "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/moviepedia_logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\moviepedia_logo.png"
-    },
-    {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\moviepedia_logo.svg",
-      "SourceId": "Moviepedia",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
-      "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/moviepedia_logo.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\moviepedia_logo.svg"
-    },
-    {
       "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Se7en .png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
@@ -969,12 +918,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\Se7en .png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\se7en_carousel.jpg",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\star.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/se7en_carousel.jpg",
+      "RelativePath": "Images/star.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -983,7 +932,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\se7en_carousel.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\star.png"
     },
     {
       "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\js\\site.js",

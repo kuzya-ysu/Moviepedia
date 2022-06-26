@@ -43,17 +43,17 @@ namespace Moviepedia.Models
             //SaveChanges();
             //var moviesOnGenre = new MoviesOnGenre[]
             //{
-            //    new MoviesOnGenre{Movie = movies[0], Genre= genres[2]},
-            //    new MoviesOnGenre{Movie = movies[0], Genre= genres[4]},
-            //    new MoviesOnGenre{Movie = movies[0], Genre= genres[11]},
-            //    new MoviesOnGenre{Movie = movies[1], Genre= genres[2]},
-            //    new MoviesOnGenre{Movie = movies[1], Genre= genres[7]},
-            //    new MoviesOnGenre{Movie = movies[1], Genre= genres[12]},
-            //    new MoviesOnGenre{Movie = movies[2], Genre= genres[2]},
-            //    new MoviesOnGenre{Movie = movies[2], Genre= genres[5]},
-            //    new MoviesOnGenre{Movie = movies[2], Genre= genres[7]},
-            //    new MoviesOnGenre{Movie = movies[3], Genre= genres[1]},
-            //    new MoviesOnGenre{Movie = movies[3], Genre= genres[2]}
+            //    new MoviesOnGenre{MovieId = 0, GenreId = 2},
+            //    new MoviesOnGenre{MovieId = 0, GenreId= 4},
+            //    new MoviesOnGenre{MovieId = 0, GenreId= 11},
+            //    new MoviesOnGenre{MovieId = 1, GenreId= 2},
+            //    new MoviesOnGenre{MovieId = 1, GenreId= 7},
+            //    new MoviesOnGenre{MovieId = 1, GenreId= 12},
+            //    new MoviesOnGenre{MovieId = 2, GenreId= 2},
+            //    new MoviesOnGenre{MovieId = 2, GenreId= 5},
+            //    new MoviesOnGenre{MovieId = 2, GenreId= 7},
+            //    new MoviesOnGenre{MovieId = 3, GenreId= 1},
+            //    new MoviesOnGenre{MovieId = 3, GenreId= 2}
             //};
             //foreach (var movieOnGenre in moviesOnGenre)
             //    MoviesOnGenre.Add(movieOnGenre);

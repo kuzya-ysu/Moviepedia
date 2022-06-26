@@ -24,7 +24,10 @@ namespace Moviepedia.Models
         public int Year { get; set; }
 
         [Required]
-        [Display(Name="Main language")]
+        [Display(Name="Language")]
         public string Language { get; set; }
+
+        [Display(Name="Rating")]
+        public float Rating { get; set; }
     }
 }

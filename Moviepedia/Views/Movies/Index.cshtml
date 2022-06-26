@@ -1,23 +1,27 @@
 ﻿@model IEnumerable<Moviepedia.Models.Movie>
 @{
-    ViewData["Title"] = "titles";
+    ViewData["Title"] = "Titles";
 }
 
 <h1></h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <div class="movies">
     @foreach (var item in Model)
     {
-        <div class="card" style="width: 18rem;">
-            <a a asp-action="Details" asp-route-id="@item.Id">
-                <img src="@Url.Content("~/Images/")@item.Name .png" class="card-img-top" alt="...">
+        <div class="card bg-transparent border-info" style="width: 18rem;">
+            <a asp-action="Details" asp-route-id="@item.Id">
+                <img src="@Url.Content("~/Images/")@item.Name .png" class="card-img-top">
             </a>
 
             <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
+                <div style="display:inline-flex">
+                    <a class="text text-info" style="text-decoration:none; margin-right: 10px" asp-action="Details" asp-route-id="@item.Id">
+                        <h5 class="card-title">@item.Name</h5>
+                    </a>
+                    <h5 style="margin-right:2px" >@item.Rating</h5>
+                    <img src="@Url.Content("~/Images/star.png")" width="16" height="16" style="margin-top:4px"/>
+                </div>
+
                 <p class="card-text">@item.Year</p>
             </div>
         </div>
