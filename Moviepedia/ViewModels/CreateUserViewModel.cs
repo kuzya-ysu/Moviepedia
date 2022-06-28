@@ -1,4 +1,4 @@
-﻿namespace BookShop.ViewModels
+﻿namespace Moviepedia.ViewModels
 {
     public class CreateUserViewModel
     {

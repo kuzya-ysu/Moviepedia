@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model Moviepedia.ViewModels.ChangeRoleViewModel
+
+<html>
+<body>
+    <div style="display:flex; flex-flow:column; height:100%; width:100%; position:absolute; right:0; left:0;">
+        <div style="margin:auto;">
+            <h3>Change roles for user @Model.Email</h3>
+
+            <form asp-action="EditUserRoles" asp-controller="Admin" method="post">
+                <input type="hidden" name="id" value="@Model.Id" />
+                <div class="form-group">
+                    @foreach (IdentityRole role in Model.AllRoles)
+                    {
+                        @if (Model.UserRoles.Contains(role.Name))
+                        {
+                            <input type="checkbox" name="roles"
+                           value="@role.Name" class="form-check-input" checked />
+                            @role.Name
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="roles"
+                           value="@role.Name" class="form-check-input" />
+                            @role.Name
+                        }
+                        <br />
+                    }
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Confirm" class="btn btn-outline-info" style="margin-top:1rem" />
+                </div>
+                <div class="row" align="center">
+                    <a asp-action="GetUsers" class="btn btn-outline-info" style="max-width:10rem; margin-top:3rem">Back</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

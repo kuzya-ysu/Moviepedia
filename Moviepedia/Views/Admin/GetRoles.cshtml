@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+<html>
+<body>
+    <div style="display:flex; flex-flow:column; height:100%; width:100%; position:absolute; right:0; left:0;">
+        <div style="margin:auto;">
+        <a asp-action="CreateRole" class="btn btn-outline-info" style="margin-top:8vh">
+            Add role
+        </a>
+
+        <table class="table text-info border-info" style="margin-top:2vh; max-width:20vw">
+
+            @foreach (var item in Model)
+            {
+                <tr style="height:4rem">
+                    <td class="h5" style="text-align:left">@item.Name</td>
+                    <td style="text-align:right">
+                        <a asp-action="DeleteRole" asp-route-id="@item.Id">
+                            <img src="@Url.Content("~/Images/delete.png")">
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+        
+    </div>
+</body>
+</html>

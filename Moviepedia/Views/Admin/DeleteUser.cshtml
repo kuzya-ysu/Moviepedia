@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity;
+
+@model Moviepedia.ViewModels.UserViewModel
+
+<html>
+<body>
+    <div style="display:flex; flex-flow:column; height:100%; width:100%; position:absolute; right:0; left:0;">
+        <div style="margin:auto;">
+            <h3> Are you sure you want do delete this user?</h3>
+            <dl class="row">
+                <dt class="col-sm-2 h3">
+                    @Html.DisplayNameFor(model => model.User.Email)
+                </dt>
+                <dd class="col-sm-10 h5">
+                    @Html.DisplayFor(model => model.User.Email)
+                </dd>
+                <dt class="col-sm-2 h3">
+                    Roles
+                </dt>
+                <dd class="col-sm-10 h5">
+                    @foreach (var role in Model.Roles)
+                    {
+                        <span>@role </span>
+                    }
+                </dd>
+            </dl>
+            <form asp-action="DeleteUser" asp-route-id=@Model.User.Id>
+                <input type="submit" value="Delete" class="btn btn-outline-danger" />
+            </form>
+            <div class="row" align="center">
+                <a asp-action="GetUsers" class="btn btn-outline-info" style="max-width:10rem; margin-top:3rem">Back</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

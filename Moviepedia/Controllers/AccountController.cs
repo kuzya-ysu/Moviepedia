@@ -1,10 +1,9 @@
-﻿using System.Threading.Tasks;
-using BookShop.ViewModels;
+﻿using Moviepedia.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookShop.Controllers
+namespace Moviepedia.Controllers
 {
     public class AccountController : Controller
     {
@@ -18,12 +17,12 @@ namespace BookShop.Controllers
             _signInManager = signInManager;
         }
         [HttpGet]
-        public IActionResult Registration()
+        public IActionResult SignUp()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Registration(RegisterViewModel model)
+        public async Task<IActionResult> SignUp(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -32,21 +31,9 @@ namespace BookShop.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    // генерация токена для пользователя
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //var callbackUrl = Url.Action(
-                    //    "ConfirmEmail",
-                    //    "Account",
-                    //    new { userId = user.Id, code = code },
-                    //    protocol: HttpContext.Request.Scheme);
-                    //EmailService emailService = new EmailService();
-                    //await emailService.SendEmailAsync(model.Email, "Confirm your account",
-                    //    $"Подтвердите регистрацию, перейдя по ссылке: <a href='{callbackUrl}'>link</a>");
-
-                    //return Content("Для завершения регистрации проверьте электронную почту и перейдите по ссылке, указанной в письме");
-
-
-
+                    await _userManager.AddToRoleAsync(user, "user");
+                    await _signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Index", "Movies");
                 }
                 foreach (var error in result.Errors)
                 {
@@ -57,39 +44,14 @@ namespace BookShop.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        public IActionResult SignIn()
         {
-            if (userId == null || code == null)
-            {
-                return View("Error");
-            }
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
-            {
-                return View("Error");
-            }
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-            if (result.Succeeded)
-            {
-                await _userManager.AddToRoleAsync(user, "user");
-                // установка куки
-                await _signInManager.SignInAsync(user, false);
-                return RedirectToAction("Index", "Home");
-            }
-            else
-                return View("Error");
-        }
-
-        [HttpGet]
-        public IActionResult Login(string returnUrl = null)
-        {
-            return View(new LoginViewModel { ReturnUrl = returnUrl });
+            return View(new LoginViewModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> SignIn(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -97,16 +59,11 @@ namespace BookShop.Controllers
                     await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    // проверяем, принадлежит ли URL приложению
-                    if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
-                    {
-                        return Redirect(model.ReturnUrl);
-                    }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Movies");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                    ModelState.AddModelError("", "Incorrect email and (or) password");
                 }
             }
             return View(model);
@@ -114,11 +71,11 @@ namespace BookShop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout()
+        public async Task<IActionResult> SignOut()
         {
             // удаляем аутентификационные куки
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Movies");
         }
         [Authorize]
         public async Task<IActionResult> ChangePassword(string name)
@@ -143,7 +100,7 @@ namespace BookShop.Controllers
                         await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
                     if (result.Succeeded)
                     {
-                        ViewBag.Msg = "Ваш пароль успешно изменен";
+                        ViewBag.Msg = "Your password has been changed!";
                         return View("Success");
                     }
                     foreach (var error in result.Errors)
@@ -153,7 +110,7 @@ namespace BookShop.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Пользователь не найден");
+                    ModelState.AddModelError(string.Empty, "User not found");
                 }
             }
             return View(model);

@@ -1,0 +1,50 @@
+﻿@using Moviepedia.Models
+@using System.Linq
+@model IEnumerable<Moviepedia.Models.Genre>
+
+
+<!DOCTYPE html>
+<div style="position:absolute; margin-top:8vh; margin-left:35vw">
+    
+<table class="table text-info border-info h3" style="margin-top:3vh; max-width:40vw" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@for (int i=0;i<Model.Count();i+=2) {
+        <tr>
+            <td>
+                @Model.ToArray()[i].Name
+            </td>
+            <td style="text-align:right">
+                <a asp-action="DeleteGenre" asp-route-id="@Model.ToArray()[i].Id">
+                    <img src="@Url.Content("~/Images/delete.png")" width="30px" >
+                </a>
+            </td>
+                    @if (i + 1 < Model.Count())
+                    {
+                        <td>
+                            @Model.ToArray()[i+1].Name
+                        </td>
+                        <td style="text-align:right">
+                            <a asp-action="DeleteGenre" asp-route-id="@Model.ToArray()[i].Id">
+                                <img src="@Url.Content("~/Images/delete.png")" width="30px">
+                            </a>
+                        </td>
+                    }
+        </tr>
+}
+    </tbody>
+</table>
+<p style="margin-top:2vh">
+    <a asp-action="CreateGenre" class="btn btn-outline-info">Add new genre</a>
+    </p>
+</div>
+

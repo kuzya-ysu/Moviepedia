@@ -1,0 +1,43 @@
+﻿@model Moviepedia.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<html>
+<body>
+    <div style="display:flex; flex-flow:column; height:100vh; width:100vw; position:absolute; right:0; left:0;">
+        <form method="post" asp-controller="Account" asp-action="SignIn"
+            style="margin:auto; width:30%;">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email"></label><br />
+                <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+                <span asp-validation-for="Email"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password"></label><br />
+                <input asp-for="Password" class="form-control"/>
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="RememberMe">
+                        <input asp-for="RememberMe" />
+                        @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
+                </div>
+            </div>
+            <br />
+            <div>
+                <button type="submit" class="btn btn-outline-info">Sign in</button>
+            </div>
+            <br />
+            <h5> Don't have an account? Sign up now!</h5>
+            <br />
+            <a asp-action="SignUp" asp-controller="Account" class="btn btn-outline-info">Sign up</a>
+        </form>
+    </div>
+</body>
+</html>

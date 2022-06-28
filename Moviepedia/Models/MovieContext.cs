@@ -7,11 +7,12 @@ namespace Moviepedia.Models
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<MoviesOnGenre> MoviesOnGenre { get; set; }
+        //public DbSet<MoviesOnGenre> MoviesOnGenre { get; set; }
         public MovieContext(DbContextOptions<MovieContext> options)
             :base(options)
         {
-            Database.EnsureCreated();
+            //Database.EnsureDeleted();
+            //Database.EnsureCreated();
             //var genres = new Genre[]
             //{
             //    new Genre{Name="Action"},
@@ -33,36 +34,40 @@ namespace Moviepedia.Models
             //SaveChanges();
             //var movies = new Movie[]
             //{
-            //    new Movie{Name="Interstellar",  Director="Cristoper Nolan", Language="English", Year=2014},
-            //    new Movie{Name="Midsommar",  Director="Ari Aster", Language="English", Year=2019},
-            //    new Movie{Name="Se7en",  Director="David Fincher", Language="English", Year=1995},
-            //    new Movie{Name="Another round",  Director="Thomas Vinterberg", Language="Danish", Year=2020}
+            //    new Movie{Name="Interstellar",  Director="Cristoper Nolan", Language="English", Year=2014, 
+            //        Genres=new List<Genre>(){genres[2],genres[4],genres[11] } },
+            //    new Movie{Name="Midsommar",  Director="Ari Aster", Language="English", Year=2019,
+            //    Genres=new List<Genre>{ genres[2], genres[7], genres[12] } },
+            //    new Movie{Name="Se7en",  Director="David Fincher", Language="English", Year=1995,
+            //    Genres=new List<Genre>{ genres[2], genres[5], genres[7] } },
+            //    new Movie{Name="Another round",  Director="Thomas Vinterberg", Language="Danish", Year=2020,
+            //    Genres=new List<Genre>{ genres[1], genres[2]}}
             //};
             //foreach (var movie in movies)
             //    Movies.Add(movie);
             //SaveChanges();
             //var moviesOnGenre = new MoviesOnGenre[]
             //{
-            //    new MoviesOnGenre{MovieId = 0, GenreId = 2},
-            //    new MoviesOnGenre{MovieId = 0, GenreId= 4},
-            //    new MoviesOnGenre{MovieId = 0, GenreId= 11},
-            //    new MoviesOnGenre{MovieId = 1, GenreId= 2},
-            //    new MoviesOnGenre{MovieId = 1, GenreId= 7},
-            //    new MoviesOnGenre{MovieId = 1, GenreId= 12},
+            //    new MoviesOnGenre{MovieId = 1, GenreId = 2},
+            //    new MoviesOnGenre{MovieId = 1, GenreId= 4},
+            //    new MoviesOnGenre{MovieId = 1, GenreId= 11},
             //    new MoviesOnGenre{MovieId = 2, GenreId= 2},
-            //    new MoviesOnGenre{MovieId = 2, GenreId= 5},
             //    new MoviesOnGenre{MovieId = 2, GenreId= 7},
-            //    new MoviesOnGenre{MovieId = 3, GenreId= 1},
-            //    new MoviesOnGenre{MovieId = 3, GenreId= 2}
+            //    new MoviesOnGenre{MovieId = 2, GenreId= 12},
+            //    new MoviesOnGenre{MovieId = 3, GenreId= 2},
+            //    new MoviesOnGenre{MovieId = 3, GenreId= 5},
+            //    new MoviesOnGenre{MovieId = 3, GenreId= 7},
+            //    new MoviesOnGenre{MovieId = 4, GenreId= 1},
+            //    new MoviesOnGenre{MovieId = 4, GenreId= 2}
             //};
             //foreach (var movieOnGenre in moviesOnGenre)
             //    MoviesOnGenre.Add(movieOnGenre);
             //SaveChanges();
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<MoviesOnGenre>()
-                .HasKey(m => new { m.GenreId, m.MovieId });
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<MoviesOnGenre>()
+        //        .HasKey(m => new { m.GenreId, m.MovieId });
+        //}
     }
 }

@@ -1,0 +1,32 @@
+﻿@model Moviepedia.Models.Review
+
+<div class="row" style="position:absolute; margin-left:35vw; margin-top:20vh">
+    <div class="col-md-4">
+        <form asp-action="AddReview" method="post" style="min-width:30vw">
+            <input type="hidden" asp-for="MovieId" value="@ViewBag.Movie.Id"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <select class="form-select" asp-for="Rating" style="width:auto">
+                <option selected>Rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <br />
+            <h4>Review:</h4>
+            <textarea asp-for="Text" style="width:24rem; min-height:6rem" ></textarea>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-outline-info" />
+            </div>
+            <br />
+            <a asp-action="Details" asp-route-id="@ViewBag.Movie.Id" class="btn btn-outline-info">Back to movie </a>
+        </form>
+    </div>
+</div>

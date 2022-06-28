@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,30 +11,16 @@
     <style>
         body {
             font-family: 'Montserrat';
+            height:100vh;
         }
     </style>
 </head>
-<body class="bg-dark bg-gradient text-info">
+<body class="bg-dark text-info">
     <header>
-        <nav class="navbar fixed-top bg-dark bg-gradient">
-            <div class="container-fluid">
-                <a class="navbar-brand text-info" asp-action="Index" asp-controller="Movies">
-                    <img src="@Url.Content("~/Images/logo.png")" width="25" height="25" class="d-inline-block align-text-top">
-                    Moviepedia
-                </a>
-                <form asp-action="Search" asp-controller="Movies" class="d-flex" role="search" style="width:30%">
-                    <input class="form-control me-2 border-info" type="search" placeholder="Search" name="searchString" aria-label="Search" >
-                    <button class="btn btn-outline-info" type="submit">Search</button>
-                </form>
-                <a class="btn btn-outline-info" asp-action="Registration" asp-controller="Account">
-                    Sign in
-                </a>
-                
-            </div>
-        </nav>
+        <partial name="_NavbarPartial"/>
     </header>
-    <div class="container" >
-        <main role="main" class="pb-3">
+    <div class="container-fluid" style="min-height:80vh;">
+        <main role="main" style="min-height:80vh">
             @RenderBody()
         </main>
     </div>

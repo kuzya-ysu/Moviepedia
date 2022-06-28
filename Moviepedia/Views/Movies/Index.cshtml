@@ -2,28 +2,78 @@
 @{
     ViewData["Title"] = "Titles";
 }
-
-<h1></h1>
-
-<div class="movies">
-    @foreach (var item in Model)
+    @if (!ViewBag.Searched)
     {
-        <div class="card bg-transparent border-info" style="width: 18rem;">
-            <a asp-action="Details" asp-route-id="@item.Id">
-                <img src="@Url.Content("~/Images/")@item.Name .png" class="card-img-top">
-            </a>
+        <div class="mainpage">
+            <div class="filter">
+                <h3>Filter</h3>
+                @using (Html.BeginForm("Index", "Movies", FormMethod.Get))
+                {
+                    <h5 style="margin-top:1rem">Genres:</h5>
+                    @Html.DropDownList("genreId", ViewBag.GenresList as SelectList)
+                    <h5 style="margin-top:1rem">Languages</h5>
+                    @Html.DropDownList("language", ViewBag.LanguageList as SelectList)
+                    <br />
+                    <input class="btn btn-outline-info" style="margin-top:2rem" type="submit" value="Filter" />
+                }
+            </div>
+            <div class="movies">
+                @foreach (var item in Model)
+                {
+                    <div class="card bg-transparent border-info" style="width: 18rem; margin-bottom:5vh; margin-right:2vw; margin-left:2vw">
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <img src="@Url.Content("~/Images/")@item.Name .png" class="card-img-top">
+                        </a>
 
-            <div class="card-body">
-                <div style="display:inline-flex">
-                    <a class="text text-info" style="text-decoration:none; margin-right: 10px" asp-action="Details" asp-route-id="@item.Id">
-                        <h5 class="card-title">@item.Name</h5>
-                    </a>
-                    <h5 style="margin-right:2px" >@item.Rating</h5>
-                    <img src="@Url.Content("~/Images/star.png")" width="16" height="16" style="margin-top:4px"/>
-                </div>
+                        <div class="card-body">
+                            <div style="display:inline-flex">
+                                <a class="text text-info" style="text-decoration:none; margin-right: 10px"
+                                    asp-action="Details" asp-route-id="@item.Id">
+                                    <h5 class="card-title">@item.Name</h5>
+                                </a>
+                                <h5 style="margin-right:2px">@item.Rating</h5>
+                                <img src="@Url.Content("~/Images/star.png")" width="16" height="16" style="margin-top:3px" />
+                            </div>
 
-                <p class="card-text">@item.Year</p>
+                            <p class="card-text">@item.Year</p>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     }
-</div>
+    else
+    {
+        @if (ViewBag.Msg[0] == 'S')
+        {
+            <h3 style="margin-top:6rem; margin-left:5rem;" >@ViewBag.Msg</h3>
+            <div class="movies">
+                @foreach (var item in Model)
+                {
+                    <div class="card bg-transparent border-info" style="width: 18rem; margin-bottom:3rem">
+                        <a asp-action="Details" asp-route-id="@item.Id">
+                            <img src="@Url.Content("~/Images/")@item.Name .png" class="card-img-top">
+                        </a>
+
+                        <div class="card-body">
+                            <div style="display:inline-flex">
+                                <a class="text text-info" style="text-decoration:none; margin-right: 10px"
+                       asp-action="Details" asp-route-id="@item.Id">
+                                    <h5 class="card-title">@item.Name</h5>
+                                </a>
+                                <h5 style="margin-right:2px">@item.Rating</h5>
+                                <img src="@Url.Content("~/Images/star.png")" width="16" height="16" style="margin-top:3px" />
+                            </div>
+
+                            <p class="card-text">@item.Year</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <h1 style="margin-top:15rem; margin-left:25rem; margin-right:25rem; min-width:initial">@ViewBag.Msg</h1>
+            <h1 style="margin-top:2rem; margin-left:25rem; margin-right:25rem; min-width:initial" >@ViewBag.Msg2</h1>
+        }
+    }

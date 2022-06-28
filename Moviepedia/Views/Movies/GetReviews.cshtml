@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Moviepedia.Models.Review>
+
+<div style="position:absolute; margin-left:3vw; margin-top:5vw;">
+    <div class="reviews2">
+        @foreach(var review in Model)
+        {
+        <div class="card border-info" style="width: 18rem; margin-bottom:2vh; background-color:transparent">
+            <div class="card-body">
+                <div style="display:inline-flex">
+                    <h5 class="card-title">@review.Movie.Name - @review.Rating</h5>
+                    <img src="@Url.Content("~/Images/star.png")" width="20" height="20" style="margin-top:2px; margin-left:5px;"/>
+                </div>
+                <p class="card-text">@review.Text</p>
+            </div>
+            <a class="btn btn-outline-info" asp-action="DeleteReview" asp-controller="Movies" asp-route-id="@review.Id">
+                Delete review
+            </a>
+        </div>
+        }
+    </div>
+</div>

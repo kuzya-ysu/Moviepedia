@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using System.Web;
+@using Moviepedia.ViewModels
+
+@model IEnumerable<UserViewModel>
+
+<html>
+<body>
+    <div style="display:flex; flex-flow:column; height:100%; width:100%; position:absolute; right:0; left:0;">
+        <div style="margin:auto;">
+            <h3 > User list</h3>
+        <table class="table text-info border-info" style="max-width:50vw;">
+            <tr>
+                <th class="h4" style="text-align:left">Username (email)</th>
+                <th class="h4" style="text-align:left">Roles</th>
+                <th class="h4" style="text-align:right"></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr style="height:3vh; vertical-align:central">
+                    <td class="h5" style="text-align:left; ">@item.User.Email</td>
+                    <td style="text-align:left; vertical-align:central">
+                        @foreach (var role in item.Roles)
+                        {
+                            <span class="h5">@role </span>
+                        }
+                    </td>
+                    <td style="text-align:right; vertical-align:central">
+                        <a asp-action="EditUserRoles" asp-route-id="@item.User.Id">
+                            <img src="@Url.Content("~/Images/edit.png")">
+                        </a>
+                        <a asp-action="DeleteUser" asp-route-id="@item.User.Id">
+                            <img src="@Url.Content("~/Images/delete.png")">
+                        </a>
+                    </td>
+                </tr>
+            }
+        </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -12,24 +12,25 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connection));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(opts =>
 {
-    opts.Password.RequiredLength = 6;//min length
+    opts.Password.RequiredLength = 6;
     opts.Password.RequireDigit = true;
     opts.Password.RequireLowercase = true;
     opts.Password.RequireNonAlphanumeric = false;
-    opts.Password.RequireUppercase = false;
+    opts.Password.RequireUppercase = true;
 }
-).AddEntityFrameworkStores<ApplicationDbContext>()
-.AddDefaultTokenProviders();
+).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//if (!app.Environment.IsDevelopment())
-//{
-//    app.UseExceptionHandler("/Home/Error");
-//}
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+}
+
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
@@ -38,3 +39,4 @@ app.MapControllerRoute(
     pattern: "{controller=Movies}/{action=Index}/{id?}");
 
 app.Run();
+

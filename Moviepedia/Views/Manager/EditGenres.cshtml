@@ -1,0 +1,27 @@
+﻿@model Moviepedia.ViewModels.EditGenresViewModel
+
+<div style="display:flex; flex-flow:column; height:100%; width:100%; position:absolute; right:0; left:0;">
+    <form asp-action="EditGenres" asp-controller="Manager" method="post" style="margin:auto; font-size:22px">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <div class="form-check">
+            <label class="form-check-label h3">Genres</label>
+            <br />
+            @foreach (var genre in Model.Genres)
+            {
+                if (Model.MovieGenres.Contains(genre))
+                {
+                    <input type="checkbox" class="form-check-input" name="genres" value="@genre.Name" checked /> @genre.Name
+                    <br />
+                }
+                else
+                {
+                    <input type="checkbox" class="form-check-input" name="genres" value="@genre.Name" /> @genre.Name
+                    <br />
+                }
+            }
+        </div>
+        <br />
+        <input type="submit" value="Confirm" class="btn btn-outline-info"/>
+        <a asp-action="GetMovies" asp-controller="Manager" class="btn btn-outline-info">Back</a>
+    </form>
+</div>

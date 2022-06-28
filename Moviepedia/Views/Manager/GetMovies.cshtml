@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Moviepedia.Models.Movie>
+
+<!DOCTYPE html>
+
+
+<p style="margin-top:10vh">
+    <a asp-action="CreateMovie" class="btn btn-outline-info">Add new movie</a>
+</p>
+<table class="table text-info border-info" style="margin-top:3vh" >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Language)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Language)
+            </td>
+            <td style="text-align:right">
+                <a asp-action="EditMovie" class="btn btn-outline-info" asp-route-id="@item.Id">Edit</a> 
+                <a asp-action="EditGenres" class="btn btn-outline-info" asp-route-id="@item.Id">Edit genres</a> 
+                <a asp-action="DeleteMovie" class="btn btn-outline-info" asp-route-id="@item.Id">
+                    Delete
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
