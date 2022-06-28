@@ -35,10 +35,11 @@ body {
 
 .filter{
     flex-shrink:1;
-    align-self:center;
+    align-self:start;
     display:flex;
     flex-flow:column;
     max-height:100vh;
+    margin-top:8vh;
 }
 
 .details{
