@@ -145,7 +145,7 @@ namespace Moviepedia.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "user, manager")]
         public IActionResult Search(string searchString)
         {
             var results = new List<Movie>();

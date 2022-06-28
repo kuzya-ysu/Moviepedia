@@ -1,5 +1,9 @@
 ﻿@model Moviepedia.Models.Movie
 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <div class="details">
     <div class="card border-info" style="width: 18rem; background-color:transparent; margin-right:3vw">
         <img src="@Url.Content("~/Images/")@Model.Name .png" />
@@ -32,7 +36,16 @@
         </div>
     </div>
     <div class="reviews">
-        <a asp-action="AddReview" asp-controller="Movies" asp-route-id="@Model.Id" class="btn btn-outline-info" style="margin-bottom:2vh">Add review</a>
+        @if((SignInManager.IsSignedIn(User)))
+        {
+            var userName = UserManager.GetUserName(User);
+            var user = await UserManager.FindByNameAsync(userName);
+            if (user != null && await UserManager.IsInRoleAsync(user, "user"))
+            {
+                <a asp-action="AddReview" asp-controller="Movies" asp-route-id="@Model.Id" class="btn btn-outline-info" style="margin-bottom:2vh">Add review</a>
+
+            }
+        }
         @foreach(var review in Model.Reviews)
         {
         <div class="card border-info" style="width: 18rem; margin-bottom:2vh; background-color:transparent">
