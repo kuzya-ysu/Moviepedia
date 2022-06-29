@@ -47,12 +47,12 @@
         @if (ViewBag.Msg[0] == 'S')
         {
             <h3 style="margin-top:6rem; margin-left:5rem;" >@ViewBag.Msg</h3>
-            <div class="movies">
+            <div class="movies" style="margin-left:8vw">
                 @foreach (var item in Model)
                 {
                     <div class="card bg-transparent border-info" style="width: 18rem; margin-bottom:3rem">
                         <a asp-action="Details" asp-route-id="@item.Id">
-                            <img src="@Url.Content("~/Images/")@item.Name .png" class="card-img-top">
+                            <img src="@Url.Content("~/Images/")@item.ImageUrl" class="card-img-top">
                         </a>
 
                         <div class="card-body">

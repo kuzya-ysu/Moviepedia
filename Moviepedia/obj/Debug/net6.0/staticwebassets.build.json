@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4qimUTfHlEroPPHUrkHt3fqvVuSPeDeccomqwn53Ygs=",
+  "Hash": "Q+ZRiU9VibI9HNkB/TRm5ZspiTwMCsHHynsNI+hRZxI=",
   "Source": "Moviepedia",
   "BasePath": "_content/Moviepedia",
   "Mode": "Default",
@@ -950,6 +950,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Interstellar.png"
+    },
+    {
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Jane Eyre.jpg",
+      "SourceId": "Moviepedia",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
+      "BasePath": "_content/Moviepedia",
+      "RelativePath": "Images/Jane Eyre.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Jane Eyre.jpg"
     },
     {
       "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\logo.png",
