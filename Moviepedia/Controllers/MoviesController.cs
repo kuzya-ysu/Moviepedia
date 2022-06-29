@@ -145,7 +145,6 @@ namespace Moviepedia.Controllers
             }
             return NotFound();
         }
-        [Authorize(Roles = "user, manager")]
         public IActionResult Search(string searchString)
         {
             var results = new List<Movie>();
@@ -156,7 +155,7 @@ namespace Moviepedia.Controllers
                 foreach (var word in matches)
                 {
                     int.TryParse(word.ToString(), out int number);
-                    var list = _context.Movies.Where(m => m.Director.Contains(word.ToString()) ||
+                    var list = _context.Movies.Include(m => m.Reviews).Where(m => m.Director.Contains(word.ToString()) ||
                                                     m.Name.Contains(word.ToString()) || m.Year==number).ToList();
                     results.AddRange(list);
                 }
@@ -177,7 +176,7 @@ namespace Moviepedia.Controllers
             else
             {
                 ViewBag.Searched = false;
-                results = _context.Movies.ToList();
+                results = _context.Movies.Include(m=>m.Reviews).ToList();
             }    
             ViewBag.GenresList = GetGenres();
             ViewBag.LanguageList = GetLanguages();

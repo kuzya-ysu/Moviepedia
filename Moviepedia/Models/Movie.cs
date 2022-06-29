@@ -46,6 +46,9 @@ namespace Moviepedia.Models
                 return rating;
             }
         }
+
+        [HiddenInput(DisplayValue =false)]
+        public string? ImageUrl { get; set; }
         
         public IEnumerable<Genre>? Genres { get; set; }
         [NotMapped]

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3EYVTzpxJ2eb9cp9mr7KCxwU0gUSso1hKg+/8Kph4fY=",
+  "Hash": "4qimUTfHlEroPPHUrkHt3fqvVuSPeDeccomqwn53Ygs=",
   "Source": "Moviepedia",
   "BasePath": "_content/Moviepedia",
   "Mode": "Default",
@@ -833,12 +833,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Another round .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Another round.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/Another round .png",
+      "RelativePath": "Images/Another round.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -847,15 +847,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Another round .png"
+      "OriginalItemSpec": "wwwroot\\Images\\Another round.png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\City of God .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\City of God.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/City of God .png",
+      "RelativePath": "Images/City of God.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -864,15 +864,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\City of God .png"
+      "OriginalItemSpec": "wwwroot\\Images\\City of God.png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Coco .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Coco.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/Coco .png",
+      "RelativePath": "Images/Coco.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -881,7 +881,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Coco .png"
+      "OriginalItemSpec": "wwwroot\\Images\\Coco.png"
     },
     {
       "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\delete.png",
@@ -918,12 +918,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\edit.png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Forrest Gump .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Forrest Gump.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/Forrest Gump .png",
+      "RelativePath": "Images/Forrest Gump.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -932,15 +932,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Forrest Gump .png"
+      "OriginalItemSpec": "wwwroot\\Images\\Forrest Gump.png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Interstellar .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Interstellar.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/Interstellar .png",
+      "RelativePath": "Images/Interstellar.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -949,7 +949,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Interstellar .png"
+      "OriginalItemSpec": "wwwroot\\Images\\Interstellar.png"
     },
     {
       "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\logo.png",
@@ -969,12 +969,12 @@
       "OriginalItemSpec": "wwwroot\\Images\\logo.png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Midsommar .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Midsommar.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/Midsommar .png",
+      "RelativePath": "Images/Midsommar.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -983,15 +983,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Midsommar .png"
+      "OriginalItemSpec": "wwwroot\\Images\\Midsommar.png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Pulp fiction .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Pulp fiction.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/Pulp fiction .png",
+      "RelativePath": "Images/Pulp fiction.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1000,15 +1000,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Pulp fiction .png"
+      "OriginalItemSpec": "wwwroot\\Images\\Pulp fiction.png"
     },
     {
-      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Se7en .png",
+      "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\Se7en.png",
       "SourceId": "Moviepedia",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\",
       "BasePath": "_content/Moviepedia",
-      "RelativePath": "Images/Se7en .png",
+      "RelativePath": "Images/Se7en.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1017,7 +1017,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\Se7en .png"
+      "OriginalItemSpec": "wwwroot\\Images\\Se7en.png"
     },
     {
       "Identity": "D:\\Programming\\Moviepedia\\Moviepedia\\wwwroot\\Images\\star.png",

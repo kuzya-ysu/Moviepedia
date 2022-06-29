@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Moviepedia.Models;
 using Moviepedia.ViewModels;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Moviepedia.Controllers
 {
@@ -10,10 +13,12 @@ namespace Moviepedia.Controllers
     public class ManagerController : Controller
     {
         private readonly MovieContext _context;
+        readonly IWebHostEnvironment _environment;
 
-        public ManagerController(MovieContext context)
+        public ManagerController(MovieContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         public async Task<IActionResult> GetMovies()
@@ -32,8 +37,18 @@ namespace Moviepedia.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateMovie([Bind("Id,Name,Director,Year,Language,Rating")] Movie movie)
+        public async Task<IActionResult> CreateMovie([Bind("Id,Name,Director,Year,Language,Rating")] Movie movie,
+             IFormFile upload)
         {
+            if (upload!=null)
+            {
+                string fileName = Path.GetFileName(upload.FileName);
+                if (CheckByGraphicsFormat(fileName))
+                {
+                    Save(upload, fileName);
+                    movie.ImageUrl = fileName;
+                }
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(movie);
@@ -54,7 +69,8 @@ namespace Moviepedia.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditMovie(int id, [Bind("Id,Name,Director,Year,Language")] Movie movie)
+        public IActionResult EditMovie(int id, [Bind("Id,Name,Director,Year,Language")] Movie movie, 
+            IFormFile upload)
         {
             if (id != movie.Id)
             {
@@ -62,6 +78,15 @@ namespace Moviepedia.Controllers
             }
             if (ModelState.IsValid)
             {
+                if (upload != null)
+                {
+                    string fileName = System.IO.Path.GetFileName(upload.FileName);
+                    if (CheckByGraphicsFormat(fileName))
+                    {
+                        Save(upload, fileName);
+                        movie.ImageUrl = fileName;
+                    }
+                }
                 try
                 {
                     _context.Update(movie);
@@ -222,6 +247,47 @@ namespace Moviepedia.Controllers
         private bool MovieExists(int id)
         {
           return (_context.Movies?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        private static bool CheckByGraphicsFormat(string fileName)
+        {
+            var ext = fileName[^3..];
+            return string.CompareOrdinal(ext, "png") == 0 || string.CompareOrdinal(ext, "jpg") == 0;
+        }
+
+        private void Save(IFormFile upload, string fileName)
+        {
+            Bitmap image = new(upload.OpenReadStream());
+            int width = 628;
+            int height = 913;
+            var smallImage = Resize(image, width, height);
+            string path = "\\wwwroot\\Images\\" + fileName;
+            var root = _environment.ContentRootPath;
+            path = root + path;
+            // сохраняем файл в папку  в каталоге wwwroot
+            using var fileStream = new FileStream(path, FileMode.Create);
+            smallImage.Save(fileStream, ImageFormat.Jpeg);
+        }
+
+        private static Bitmap Resize(Image image, int width, int height)
+        {
+            var destRect = new Rectangle(0, 0, width, height);
+            var destImage = new Bitmap(width, height);
+
+            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
+
+            using (var graphics = Graphics.FromImage(destImage))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                using var wrapMode = new ImageAttributes();
+                wrapMode.SetWrapMode(WrapMode.TileFlipXY);
+                graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+            }
+            return destImage;
         }
     }
 }
